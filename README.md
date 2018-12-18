@@ -10,4 +10,6 @@ The Tset.cmd file asks 4 questions to specify the Teensy Board, MCU Speed, Compi
 TO USE :: Put the files from the repository in a known folder.
 Run Tset.cmd ( must include extention .cmd! ) from the Sketch folder where the INO is stored for IDE usage.  It can run from within your IDE or from CMD line or Explorer window.
 
+NOTE: You must edit Tset.cmd1 to have proper folder paths to your local system. And it you aren't an English keyboard user make an edit to Tset.cmd2 from the specified: keys=en-us.
+
 Other note: Nothing stops making a bad combination - like asking for a 256 MHZ T_LC - so that would cause a build to fail.
