@@ -5,15 +5,20 @@ rem menu.speed=CPU Speed
 rem menu.opt=Optimize
 rem menu.keys=Keyboard Layout
 
+goto StartUp
+
 :StartUp
 Echo =============================================  MODEL
 Echo 	1 :: LC
 Echo 	2 :: 3.2/3.1
 Echo 	3 :: 3.5
 Echo 	4 :: 3.6
-Echo.
-Choice /C 1234 /M "Which Teensy"
+Echo 	5 :: 3.0
 
+Echo.
+Choice /C 12345 /M "Which Teensy"
+
+If Errorlevel 5 Goto T30
 If Errorlevel 4 Goto T36
 If Errorlevel 3 Goto T35
 If Errorlevel 2 Goto T32
@@ -28,11 +33,11 @@ Echo 	1 :: 96 Mhz
 Echo 	2 :: 120 Mhz
 Echo 	3 :: 144 Mhz
 Echo 	4 :: 168 Mhz
-Echo 	5 :: 180 Mhz
-Echo 	6 :: 192 Mhz
-Echo 	7 :: 216 Mhz
-Echo 	8 :: 240 Mhz
-Echo 	9 :: 256 Mhz
+Echo 	5 :: 180 Mhz	[3.6]
+Echo 	6 :: 192 Mhz	[3.6 OC]
+Echo 	7 :: 216 Mhz	[3.6 OC]
+Echo 	8 :: 240 Mhz	[3.6 OC]
+Echo 	9 :: 256 Mhz	[3.6 OC]
 Echo 	a :: 2 Mhz
 Echo 	b :: 16 Mhz
 Echo 	c :: 24 Mhz
@@ -56,6 +61,15 @@ If Errorlevel 3 Goto S3
 If Errorlevel 2 Goto S2
 If Errorlevel 1 Goto S1
 
+:GetSpeedLC
+Echo ============================================= Speed
+Echo 	c :: 24 Mhz
+Echo 	d :: 48 Mhz
+Echo.  
+Choice /C cd  /M "What Speed"
+If Errorlevel 2 Goto S13
+If Errorlevel 1 Goto S12
+
 :GetOpt
 Echo ============================================= OPTIMIZE
 Echo 	1 :: Faster
@@ -63,9 +77,9 @@ Echo 	2 :: Faster with LTO
 Echo 	3 :: Fast
 Echo 	4 :: Fast with LTO
 Echo 	5 :: Fastest
-Echo 	6 :: Fastest + pure-code
+Echo 	6 :: Fastest + pure-code		[3.2+]
 Echo 	7 :: Fastest with LTO
-Echo 	8 :: Fastest + pure-code with LTO
+Echo 	8 :: Fastest + pure-code with LTO  [3.2+]
 Echo 	9 :: Debug
 Echo 	a :: Debug with LTO
 Echo 	b :: Smallest Code
@@ -134,6 +148,10 @@ If Errorlevel 1 Goto U1
 
 
 REM >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>   MODEL
+:T30
+set model=TEENSY30
+goto GetSpeed
+
 :T36
 set model=teensy36
 goto GetSpeed
@@ -148,7 +166,8 @@ goto GetSpeed
 
 :TLC
 set model=teensyLC
-goto GetSpeed
+set gtv=LC
+goto GetSpeed%gtv%
 REM >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>   MODEL
 
 REM >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>   SPEED
@@ -360,11 +379,13 @@ ECHO SPEED :: %speed%
 ECHO OPTIMIZE :: %opt%
 ECHO USB :: %usb%
 Echo =============================================  CONFIRM
-Echo 	Y :: Yes :: Accept
+Echo 	Y :: Yes :: Accept and save to %cd%\Compile.cmd
 Echo 	N :: No :: RESTART
-Echo 	S :: Save to %model% Subdirectory
+Echo 	S :: Save to %cd%\%model%
+Echo 	x :: Exit now without writing
 Echo.
-Choice /C YNS /M "Accept"
+Choice /C YNSx /M "Accept"
+If Errorlevel 4 exit
 If Errorlevel 3 Goto DoDir
 If Errorlevel 2 Goto StartUp
 If Errorlevel 1 Goto DoneNow
