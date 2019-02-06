@@ -9,6 +9,7 @@ adds
 
 * teensy4b.menu.speed.600=600 MHz
 * teensy4b.menu.speed.600.build.fcpu=600000000
+* and change to teensy4b.build.board=TEENSY4b from teensy4b.build.board=TEENSY40
 
 This is an extention of work by Frank Boesing [https://github.com/FrankBoesing]  - that actually is the Batch file that runs the Arduino Builder outside the IDE. Install a supported Arduino IDE and TeensyDuino combination - and TyCommander by Koromix [ https://github.com/Koromix/tytools ].
 
