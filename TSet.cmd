@@ -14,10 +14,12 @@ Echo 	2 :: 3.2/3.1
 Echo 	3 :: 3.5
 Echo 	4 :: 3.6
 Echo 	5 :: 3.0
+Echo 	6 :: 4 Beta1
 
 Echo.
-Choice /C 12345 /M "Which Teensy"
+Choice /C 123456 /M "Which Teensy"
 
+If Errorlevel 6 Goto T4b1
 If Errorlevel 5 Goto T30
 If Errorlevel 4 Goto T36
 If Errorlevel 3 Goto T35
@@ -148,6 +150,11 @@ If Errorlevel 1 Goto U1
 
 
 REM >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>   MODEL
+:T4b1
+set model=teensy4b
+set speed=396000000
+goto GetOpt
+
 :T30
 set model=TEENSY30
 goto GetSpeed
