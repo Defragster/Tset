@@ -1,0 +1,44 @@
+
+>> FORMAT CODE when using installed package :: SublimeAStyleFormatter
+Ctrl+ Alt+ f
+
+
+>> USER BUILD FILE for Teensy :: Teensy.sublime-build
+>> Ctrl+ Shift+ B to select below and F7 to repeat last build command
+"%AppData%\Sublime Text 3\Packages\User\Teensy.sublime-build"
+----
+{
+	"shell_cmd": ".\\Compile.cmd 1",
+    "file_regex": "^(..[^:]*):([0-9]+):?([0-9]+)?:? (.*)$",
+    "working_dir": "${file_path}",
+    "selector": "source.c, source.c++",
+
+	 "variants":
+    [
+     {
+      "name": "Clean",
+      "shell_cmd": ".\\Compile.cmd 2",
+     },
+     {
+      "name": "New Sketch",
+      "shell_cmd": "start T:\\Programs\\TSet\\open_new.cmd",
+     },
+     {
+      "name": "Verify",
+      "shell_cmd": ".\\Compile.cmd 0",
+     },
+     {
+      "name": "Tools Set",
+      "shell_cmd": "start T:\\Programs\\TSet\\TSet.cmd",
+     }
+   ]
+
+
+}
+
+
+
+
+======= misc ref
+>> How to create a shortcut for user's build system in Sublime Text?
+https://stackoverflow.com/questions/22403119/how-to-create-a-shortcut-for-users-build-system-in-sublime-text

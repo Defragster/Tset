@@ -12,10 +12,14 @@ Run Tset.cmd ( must include extention .cmd! ) from the Sketch folder where the I
 
 NOTE: You must edit Tset.cmd1 to have proper folder paths to your local system. And it you aren't an English keyboard user make an edit to Tset.cmd2 from the specified: keys=en-us.
 
-Other note: Nothing stops making a bad combination - like asking for a 256 MHZ T_LC - so that would cause a build to fail.
+Other note: Nothing stops making a bad combination - like asking for a 256 MHZ T_LC - so that would cause a build to fail [Though T_LC speed choice is now 24 or 48 MHz].
 
 Given that this is Teensy specific it started here with FrankB's posted batch file to run the Arduino IDE's builder in a shell: https://forum.pjrc.com/threads/27825-Teensy-Qt?p=190940&viewfull=1#post190940
 
-The addition here is the batch file with four prompts for the Teensy IDE settings being programmatically merged into the initial batch file that would require hand editing of the numerous options for Teensy Model, MCU Speed, Optimization level and one of the 21 USB options available.  This was posted on the forum here in the context of use with SublimeText to build and upload from within the editor: https://forum.pjrc.com/threads/38391-Use-Sublime-Text-as-an-Arduino-IDE-replacement?p=193136&viewfull=1#post193136
+The addition here is the batch file with prompts for the Teensy IDE settings being programmatically merged into the initial batch file that would require hand editing of the numerous options for Teensy Model, MCU Speed, Optimization level and one of the 21 USB options available.  This was posted on the forum here in the context of use with SublimeText to build and upload from within the editor: https://forum.pjrc.com/threads/38391-Use-Sublime-Text-as-an-Arduino-IDE-replacement?p=193136&viewfull=1#post193136
 
-That links to the updated version allowing the batch file to be placed in the specific Teensy Model folder to allow sending the same sketch to be sent to other models and only set it up once.
+That links to the updated version allowing the batch file to be placed in the specific Teensy Model folder to allow sending the same sketch to be sent to other models and only set it up once per model, the Compile.cmd must be run from that directory.
+
+Added 'open_new.cmd' [Must edit the specified sketchbook(sbook) and Tset home directory (srcdir)] option to create the IDE type Sketch in same name folder with a base 'new_ino.ino' sketch, prompts for selecting subfolder in sketchbook directory, and offers to run Tset to create Compile.cmd.
+
+Works on Beta_8 T4 [with beta Tycomm] with custom edits to boards.txt

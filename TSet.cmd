@@ -416,6 +416,3 @@ echo set usb=%usb%>> %OutCMD%
 echo %BuildUp%>> %OutCMD%
 type %02 >> %OutCMD%
 exit
-
-
-
