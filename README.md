@@ -5,6 +5,7 @@ For Windows - a Batch file to create another local sketch folder Batch file that
 
 ** included beta 8 boards.txt modified to function for Teensy Beta T4.
 * change to this "4b":: teensy4b.build.board=TEENSY4b from teensy4b.build.board=TEENSY40
+
 ** add this menu::
 * teensy4b.menu.speed.600=600 MHz
 * teensy4b.menu.speed.600.build.fcpu=600000000
