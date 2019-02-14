@@ -15,8 +15,8 @@ if not exist %sbook%\%bar%\. md %bar%
 echo Enter Sketch Name
 set /p foo=
 if not exist %sbook%\%bar%\%foo%\. md %sbook%\%bar%\%foo%
-if not exist %sbook%\%bar%\%foo%\%foo%.ino copy %srcdir%\new_ino.ino %sbook%\%bar%\%foo%\%foo%.ino
 if exist %sbook%\%bar%\%foo%\%foo%.ino echo File already exists
+if not exist %sbook%\%bar%\%foo%\%foo%.ino copy %srcdir%\new_ino.ino %sbook%\%bar%\%foo%\%foo%.ino
 Choice /C yn /M "Create Compile.cmd"
 If Errorlevel 2 Goto nowexit
 rem If Errorlevel 1 
