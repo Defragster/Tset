@@ -3,7 +3,7 @@ Teensy Setting IDE Tools
 
 For Windows - a Batch file to create another local sketch folder Batch file that will run the Arduino IDE build system.
 
-** included beta 8 boards.txt modified to function for Teensy Beta T4.
+** included beta 9 boards.txt modified to function for Teensy Beta T4.
 * change to this "4b":: teensy4b.build.board=TEENSY4b from teensy4b.build.board=TEENSY40
 
 ** add this menu::
@@ -29,7 +29,7 @@ That links to the updated version allowing the batch file to be placed in the sp
 
 Added 'open_new.cmd' [Must edit the specified sketchbook(sbook) and Tset home directory (srcdir)] option to create the IDE type Sketch in same name folder with a base 'new_ino.ino' sketch, prompts for selecting subfolder in sketchbook directory, and offers to run Tset to create Compile.cmd.
 
-Works on Beta_8 T4 [with beta Tycomm] with custom edits to boards.txt
+Works on Beta_9 T4 [with beta Tycomm] with custom edits to boards.txt
 
 This works perfectly in SublimeText as a " Tools / Build System " to setup::
 From Sublime Menu:: Tools/ Build System/ New build system … https://forum.pjrc.com/threads/38391-Use-Sublime-Text-as-an-Arduino-IDE-replacement?p=193093&viewfull=1#post193093 is how I started.  That gives a way to create the file I have on github [ https://github.com/Defragster/Tset/blob/master/SublimeText.txt ]. You can then copy the contents into it and save.  [the %appdata% path there would let you manually create and save the named file and I suspect it will get picked up].  Then Under: Tools/ Build System I see ‘Teensy’ [as I named it] that I selected as the build system and that triggers that with Ctrl+Shift+B to select the variation and Ctrl+B or F7 to run the last used variation.  Other Notes:: refer to the post:: https://forum.pjrc.com/threads/38391-Use-Sublime-Text-as-an-Arduino-IDE-replacement?p=193136&viewfull=1#post193136
