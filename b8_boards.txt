@@ -33,9 +33,6 @@ teensy4b.build.flags.S=-x assembler-with-cpp
 teensy4b.build.flags.ld=-Wl,--gc-sections,--relax "-T{build.core.path}/imxrt.ld"
 teensy4b.build.flags.libs=-larm_cortexM7lfsp_math -lm -lstdc++
 teensy4b.build.fcpu=396000000
-teensy4b.build.keylayout=US_ENGLISH
-
-
 teensy4b.serial.restart_cmd=false
 teensy4b.menu.usb.serial=Serial
 teensy4b.menu.usb.serial.build.usbtype=USB_SERIAL
