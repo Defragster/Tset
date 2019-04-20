@@ -21,7 +21,7 @@ Echo 	q :: quit
 Echo.
 Choice /C 1234567q /M "Which Teensy"
 
-If Errorlevel q Goto Abort
+If Errorlevel 8 Goto TsetQuit
 If Errorlevel 7 Goto T4b2
 If Errorlevel 6 Goto T4b1
 If Errorlevel 5 Goto T30
@@ -401,7 +401,7 @@ Echo 	S :: Save to %cd%\%model%
 Echo 	x :: Exit now without writing
 Echo.
 Choice /C YNSx /M "Accept"
-If Errorlevel 4 Goto Abort
+If Errorlevel 4 Goto TsetQuit
 If Errorlevel 3 Goto DoDir
 If Errorlevel 2 Goto StartUp
 If Errorlevel 1 Goto DoneNow
@@ -424,5 +424,5 @@ echo set opt=%opt%>> %OutCMD%
 echo set usb=%usb%>> %OutCMD%
 echo %BuildUp%>> %OutCMD%
 type %02 >> %OutCMD%
-:Abort
+:TsetQuit
 exit
