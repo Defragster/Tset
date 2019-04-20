@@ -3,12 +3,16 @@ Teensy Setting IDE Tools
 
 For Windows - a Batch file to create another local sketch folder Batch file that will run the Arduino IDE build system.
 
-** included beta 9 boards.txt modified to function for Teensy Beta T4.
-* change to this "4b":: teensy4b.build.board=TEENSY4b from teensy4b.build.board=TEENSY40
+** TD 1.46 beta 11 boards.txt modified to function for Teensy Beta T4 #1 and #2.
+* change to this "4b1" and "4b2":: teensy4b[1,2].build.board=TEENSY4b[1,2] from teensy4b[1,2].build.board=TEENSY40
+* w/1.46b11 and 2nd T4 beta:: teensy4b1.build.board=TEENSY4b1 and teensy4b2.build.board=TEENSY4b2
 
-** add this menu::
-* teensy4b.menu.speed.600=600 MHz
-* teensy4b.menu.speed.600.build.fcpu=600000000
+** add this menu for both teensy4b1.menu and teensy4b2.menu after '...disable.build.usbtype=USB_DISABLED'::
+* teensy4b2.menu.speed.600=600 MHz
+* teensy4b2.menu.speed.600.build.fcpu=600000000
+*
+* teensy4b1.menu.speed.600=600 MHz
+* teensy4b1.menu.speed.600.build.fcpu=600000000
 
 This is an extention of work by Frank Boesing [https://github.com/FrankBoesing]  - that actually is the Batch file that runs the Arduino Builder outside the IDE. Install a supported Arduino IDE and TeensyDuino combination - and TyCommander by Koromix [ https://github.com/Koromix/tytools ].
 
