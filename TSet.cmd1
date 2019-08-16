@@ -12,7 +12,7 @@ rem - Attention: Place compile.cmd in Sketch folder!
 rem
 rem Edit these paths:
 
-set arduino=T:\arduino-1.8.8T4_146
+set arduino=T:\arduino-1.8.9t4
 set TyTools=T:\TyComm
 set libs=T:\tCode\libraries
 
