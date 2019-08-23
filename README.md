@@ -15,8 +15,6 @@ This is an extention of work by Frank Boesing [https://github.com/FrankBoesing] 
 
 Install a supported Arduino IDE {tested 1.8.9} and TeensyDuino {tested 1.47} combination - and TyCommander by Koromix [ https://github.com/Koromix/tytools ].
 
-Also by FrankB is 'imxrt-size.exe' for Teensy 4.0 that is REM'd out in Tset.Cmd2 as it is T_4 specific and may not be updated to work fully as it collects segment size allocation of the built sketch memory allocation for the T_4.
-
 The Tset.cmd file asks questions to specify the Teensy Board, MCU Speed, Compile Optimization level and USB type. Then it asks to approve or restart the selection if a wrong choice was made.  It also allows creating a subfolder based on Teensy Model to hold the file so the same build batch file can be created for run any of the T_LC, T_3.2/3.2, T_3.5, T_3.6 or T_4.0.
 
 TO USE :: Put the files from the repository in a known folder.
