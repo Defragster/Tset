@@ -2,7 +2,6 @@
 rem set keys=de-de
 set keys=en-us
 
-
 rem *******************************
 rem Don't edit below this line
 rem *******************************
@@ -35,7 +34,8 @@ echo Building Sketch: %ino%
 
 if not "%1"=="0" (
   if "%errorlevel%"=="0" "%TyTools%\TyCommanderC.exe" upload --autostart --wait --multi "%temp1%\%sketchname%.%model%.hex"
-  rem "%arduino%\hardware\tools\arm\bin\arm-none-eabi-gcc-nm.exe" "%temp1%\%sketchname%.elf" -n | "T:\Programs\TSet\imxrt-size.exe"
+  REM 1052 "%arduino%\hardware\tools\arm\bin\arm-none-eabi-gcc-nm.exe" "%temp1%\%sketchname%.elf" -n | "%tools%\imxrt-size.exe"
+  "%arduino%\hardware\tools\arm\bin\arm-none-eabi-gcc-nm.exe" -n "%temp1%\%sketchname%.elf" | "%tools%\imxrt_size.exe"
 )
 
 exit %errorlevel%
