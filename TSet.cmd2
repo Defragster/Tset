@@ -37,4 +37,5 @@ if not "%1"=="0" (
   REM "%arduino%\hardware\tools\arm\bin\arm-none-eabi-gcc-nm.exe" -n "%temp1%\%sketchname%.elf" | "%tools%\imxrt_size.exe"
 )
 
-exit %errorlevel%
+if "%1x"=="x%1" PAUSE
+if not "%1x"=="x%1" exit %errorlevel%
