@@ -1,4 +1,5 @@
 @echo off
+REM Set Sketchbook'sbook' to YOUR directory, and following 'srcdir' the folder holding these TSET files
 set sbook=T:\tCode
 set srcdir=T:\Programs\TSet
 set bar=.
@@ -21,7 +22,7 @@ Choice /C yn /M "Create Compile.cmd"
 If Errorlevel 2 Goto nowexit
 rem If Errorlevel 1 
 cd %sbook%\%bar%\%foo%
-start /w T:\Programs\TSet\TSet.cmd
+start /w %srcdir%\TSet.cmd
 :nowexit
 start %sbook%\%bar%\%foo%\%foo%.ino
 popd
