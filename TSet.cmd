@@ -65,6 +65,29 @@ If Errorlevel 3 Goto S3
 If Errorlevel 2 Goto S2
 If Errorlevel 1 Goto S1
 
+:GetSpeedT4
+Echo ============================================= Speed
+Echo 	1 :: 600 Mhz
+Echo 	2 :: 528 Mhz
+Echo 	3 :: 396 Mhz
+Echo 	4 :: 24 Mhz
+Echo 	5 :: 720 Mhz (OC)
+Echo 	6 :: 816 Mhz (OC)
+Echo 	7 :: 912 Mhz (cooling reqd)
+Echo 	8 :: 960 Mhz (cooling reqd)
+Echo 	9 :: 1008 Mhz (cooling reqd)
+Echo.  
+Choice /C 123456789  /M "What Speed"
+If Errorlevel 9 Goto TS9
+If Errorlevel 8 Goto TS8
+If Errorlevel 7 Goto TS7
+If Errorlevel 6 Goto TS6
+If Errorlevel 5 Goto TS5
+If Errorlevel 4 Goto TS4
+If Errorlevel 3 Goto TS3
+If Errorlevel 2 Goto TS2
+If Errorlevel 1 Goto TS1
+
 :GetSpeedLC
 Echo ============================================= Speed
 Echo 	c :: 24 Mhz
@@ -154,8 +177,7 @@ If Errorlevel 1 Goto U1
 REM >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>   MODEL
 :T40
 set model=teensy40
-set speed=396000000
-goto GetOpt
+goto GetSpeedT4
 
 :T30
 set model=TEENSY30
@@ -236,7 +258,44 @@ goto GetOpt
 set speed=96
 goto GetOpt
 
-REM >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>   SPEED
+REM >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>   SPEED T4
+
+:TS9
+set speed=1008
+goto GetOpt
+
+:TS8
+set speed=960
+goto GetOpt
+
+:TS7
+set speed=912
+goto GetOpt
+
+:TS6
+set speed=816
+goto GetOpt
+
+:TS5
+set speed=720
+goto GetOpt
+
+:TS4
+set speed=24
+goto GetOpt
+
+:TS3
+set speed=396
+goto GetOpt
+
+:TS2
+set speed=528
+goto GetOpt
+
+:TS1
+set speed=600
+goto GetOpt
+REM >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>   SPEED T4
 
 
 REM >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>   OPTIMIZE
