@@ -3,8 +3,8 @@ Teensy Setting IDE Tools
 
 For Windows - a Batch file to create another local sketch folder Batch file that will run the Arduino IDE build system.  Using SublimeText it has a BUILD system that will execute this batch file, it can also be run from Windows command line - or perhaps your editor can run it as well.
 
-** SublimeText will go to code in error - NOTE: Sometimes it goes to the TEMP build folder not source file - be aware of that if changes don't stick
-** TD 1.48 boards.txt added Speed Menu and TSET files were updated, no changes needed to installed TeensyDuino files!
+* SublimeText will go to code in error - NOTE: Sometimes it goes to the TEMP build folder not source file - be aware of that if changes don't stick
+* TD 1.48 boards.txt added Speed Menu and TSET files were updated, no changes needed to installed TeensyDuino files!
 
 
 This is an extention of work by Frank Boesing [https://github.com/FrankBoesing]  - that actually is the Batch file that runs the Arduino Builder outside the IDE. 
