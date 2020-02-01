@@ -32,6 +32,8 @@ if not exist %temp2% mkdir %temp2%
 echo Building Sketch: %ino%
 "%arduino%\arduino-builder" -verbose=1 -warnings=more -compile -logger=human -hardware "%arduino%\hardware" -hardware "%LOCALAPPDATA%\Arduino15\packages" -tools "%arduino%\tools-builder" -tools "%arduino%\hardware\tools\avr" -tools "%LOCALAPPDATA%\Arduino15\packages" -built-in-libraries "%arduino%\libraries" -libraries "%libs%" -fqbn=%fqbn% -build-path %temp1% -build-cache "%temp2%"  %ino%
 
+rem Comment line below to build prior to TeensyDuino 1.50
+if "%model%"=="teensy31" set model=teensy32
 if not "%1"=="0" (
   if "%errorlevel%"=="0" "%TyTools%\TyCommanderC.exe" upload --autostart --wait --multi "%temp1%\%sketchname%.%model%.hex"
   REM "%arduino%\hardware\tools\arm\bin\arm-none-eabi-gcc-nm.exe" -n "%temp1%\%sketchname%.elf" | "%tools%\imxrt_size.exe"
