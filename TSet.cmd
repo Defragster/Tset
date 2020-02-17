@@ -15,12 +15,14 @@ Echo 	3 :: 3.5
 Echo 	4 :: 3.6
 Echo 	5 :: 3.0
 Echo 	6 :: 4.0
+Echo 	7 :: 4.1
 Echo 	q :: quit
 
 Echo.
 Choice /C 1234567q /M "Which Teensy"
 
-If Errorlevel 7 Goto TsetQuit
+If Errorlevel 8 Goto TsetQuit
+If Errorlevel 7 Goto T41
 If Errorlevel 6 Goto T40
 If Errorlevel 5 Goto T30
 If Errorlevel 4 Goto T36
@@ -175,6 +177,10 @@ If Errorlevel 1 Goto U1
 
 
 REM >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>   MODEL
+:T41
+set model=teensy41
+goto GetSpeedT4
+
 :T40
 set model=teensy40
 goto GetSpeedT4

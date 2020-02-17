@@ -1,4 +1,4 @@
-﻿@echo off
+@echo off
 SETLOCAL DisableDelayedExpansion EnableExtensions
 rem *******************************
 rem Frank Bösing 11/2018
@@ -12,9 +12,10 @@ rem - Attention: Place compile.cmd in Sketch folder!
 rem
 rem Edit these paths:
 
-set arduino=T:\arduino_1.8.9_146
+set arduino=T:\arduino-1.8.12
 set TyTools=T:\TyComm
 set libs=T:\tCode\libraries
+set tools=T:\Programs\TSet
 
 rem *******************************
 rem Set Teensy-specific variables here:
@@ -23,15 +24,14 @@ rem
 
 REM defragster was here 
 
-set model=teensy36
-set speed=180
+set model=teensy40
+set speed=600
 set opt=o2std
 set usb=serial
 cd.
 
 rem set keys=de-de
 set keys=en-us
-
 
 rem *******************************
 rem Don't edit below this line
@@ -63,9 +63,14 @@ if not exist %temp2% mkdir %temp2%
 echo Building Sketch: %ino%
 "%arduino%\arduino-builder" -verbose=1 -warnings=more -compile -logger=human -hardware "%arduino%\hardware" -hardware "%LOCALAPPDATA%\Arduino15\packages" -tools "%arduino%\tools-builder" -tools "%arduino%\hardware\tools\avr" -tools "%LOCALAPPDATA%\Arduino15\packages" -built-in-libraries "%arduino%\libraries" -libraries "%libs%" -fqbn=%fqbn% -build-path %temp1% -build-cache "%temp2%"  %ino%
 
+rem Comment line below to build prior to TeensyDuino 1.50
+if "%model%"=="teensy31" set model=teensy32
 if not "%1"=="0" (
-  if "%errorlevel%"=="0" "%TyTools%\TyCommanderC.exe" upload --autostart --wait --multi "%temp1%\%sketchname%.%model%.hex"
-  "%arduino%\hardware\tools\arm\bin\arm-none-eabi-gcc-nm.exe" "%temp1%\%sketchname%.elf" -n | "T:\Programs\TSet\imxrt-size.exe"
+	REM Use TyComm with IDE to reboot for TeensyLoader Update // tycmd reset -b
+  rem if "%errorlevel%"=="0" "%TyTools%\TyCommanderC.exe" upload --autostart --wait  "%temp1%\%sketchname%.%model%.hex"
+  REM 1052 "%arduino%\hardware\tools\arm\bin\arm-none-eabi-gcc-nm.exe" "%temp1%\%sketchname%.elf" -n | "%tools%\imxrt-size.exe"
+  "%arduino%\hardware\tools\arm\bin\arm-none-eabi-gcc-nm.exe" -n "%temp1%\%sketchname%.elf" | "%tools%\imxrt_size.exe"
 )
 
-exit %errorlevel%
+if "%1x"=="x%1" PAUSE
+if not "%1x"=="x%1" exit %errorlevel%
