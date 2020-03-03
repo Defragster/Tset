@@ -151,8 +151,12 @@ Echo 	i :: flightsim
 Echo 	j :: flightsimjoystick
 Echo 	k :: everything
 Echo 	l :: disable
+Echo 	m :: Dual Serial
+Echo 	n :: Triple Serial
 Echo.
-Choice /C 123456789abcdefghijkl /M "What USB"
+Choice /C 123456789abcdefghijklmn /M "What USB"
+If Errorlevel 23 Goto U23
+If Errorlevel 22 Goto U22
 If Errorlevel 21 Goto U21
 If Errorlevel 20 Goto U20
 If Errorlevel 19 Goto U19
@@ -356,6 +360,15 @@ goto GetUSB
 REM >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>   OPTIMIZE
 
 REM >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>   USB
+
+:U23
+set usb=serial3
+goto BeDone
+
+:U22
+set usb=serial2
+goto BeDone
+
 :U21
 set usb=disable
 goto BeDone
