@@ -37,7 +37,7 @@ echo Building Sketch: %ino%
 
 if not "%1"=="0" (
 	REM Use TyComm with IDE to reboot for TeensyLoader Update // tycmd reset -b
-  rem if "%errorlevel%"=="0" "%TyTools%\TyCommanderC.exe" upload --autostart --wait  "%temp1%\%sketchname%.%model%.hex"
+  if "%errorlevel%"=="0" "%TyTools%\TyCommanderC.exe" upload --autostart --wait  "%temp1%\%sketchname%.%model%.hex"
   REM 1052 "%arduino%\hardware\tools\arm\bin\arm-none-eabi-gcc-nm.exe" "%temp1%\%sketchname%.elf" -n | "%tools%\imxrt-size.exe"
   if "%errorlevel%"=="0" "%arduino%\hardware\tools\arm\bin\arm-none-eabi-gcc-nm.exe" -n "%temp1%\%sketchname%.elf" | "%tools%\imxrt_size.exe"
 )
