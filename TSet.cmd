@@ -470,8 +470,10 @@ Echo 	Y :: Yes :: Accept and save to %cd%\Compile.cmd
 Echo 	N :: No :: RESTART
 Echo 	S :: Save to %cd%\%model%
 Echo 	x :: Exit now without writing
+Echo 	D :: yes with DEBUG GDB and save to %cd%\Compile.cmd
 Echo.
-Choice /C YNSx /M "Accept"
+Choice /C YNSxD /M "Accept"
+If Errorlevel 5 Goto DoneNowGDB
 If Errorlevel 4 Goto TsetQuit
 If Errorlevel 3 Goto DoDir
 If Errorlevel 2 Goto StartUp
@@ -496,4 +498,19 @@ echo set usb=%usb%>> %OutCMD%
 echo %BuildUp%>> %OutCMD%
 type %02 >> %OutCMD%
 :TsetQuit
+exit
+
+:DoneNowGDB
+set OutCMD=%MoveFile%Compile.cmd
+rem can use %~dp0 not %01 %02 to get FB Parts
+type %01 > %OutCMD%
+echo.>> %OutCMD%
+echo REM defragster was here >> %OutCMD%
+echo.>> %OutCMD%
+echo set model=%model%>> %OutCMD%
+echo set speed=%speed%>> %OutCMD%
+echo set opt=%opt%>> %OutCMD%
+echo set usb=%usb%>> %OutCMD%
+echo %BuildUp%>> %OutCMD%
+type %02G >> %OutCMD%
 exit
