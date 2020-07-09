@@ -190,7 +190,7 @@ set model=teensy40
 goto GetSpeedT4
 
 :T30
-set model=TEENSY30
+set model=teensy30
 goto GetSpeed
 
 :T36
