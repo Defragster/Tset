@@ -9,16 +9,16 @@ For Windows - a Batch file to create another local sketch folder Batch file that
 
 This is an extention of work by Frank Boesing [https://github.com/FrankBoesing]  - that actually is the Batch file that runs the Arduino Builder outside the IDE. 
 
-Install a supported Arduino IDE {tested 1.8.10} and TeensyDuino {tested 1.48} combination - and TyCommander by Koromix [ https://github.com/Koromix/tytools ].
+Install a supported Arduino IDE {tested 1.8.13} and TeensyDuino {tested 1.53} combination - and TyCommander by Koromix [ https://github.com/Koromix/tytools ].
 
-The Tset.cmd file asks questions to specify the Teensy Board, MCU Speed, Compile Optimization level and USB type. Then it asks to approve or restart the selection if a wrong choice was made.  It also allows creating a subfolder based on Teensy Model to hold the file so the same build batch file can be created for run any of the T_LC, T_3.2/3.2, T_3.5, T_3.6 or T_4.0.
+The Tset.cmd file asks questions to specify the Teensy Board, MCU Speed, Compile Optimization level and USB type. Then it asks to approve or restart the selection if a wrong choice was made.  It also allows creating a subfolder based on Teensy Model to hold the file so the same build batch file can be created for run any of the T_LC, T_3.2/3.2, T_3.5, T_3.6 or T_4.0 and T_4.1.
 
 TO USE :: Put the files from the repository in a known folder.
 Run Tset.cmd ( must include extention .cmd ) from the Sketch folder where the INO is stored for IDE usage.  It can run from within your IDE or from CMD line or Explorer window.
 
 NOTE: You must edit Tset.cmd1 to have proper folder paths to your local system. 
 * rem Edit these paths:
-* set arduino=T:\arduino-1.8.9t4
+* set arduino=T:\arduino-1.8.13
 * set TyTools=T:\TyComm
 * set libs=T:\tCode\libraries
 * set tools=T:\Programs\TSet
@@ -37,7 +37,7 @@ That links to the updated version allowing the batch file to be placed in the sp
 
 Added 'open_new.cmd' [Must edit the specified sketchbook(sbook) and Tset home directory (srcdir)] option to create the IDE type Sketch in same name folder with a base 'new_ino.ino' sketch, prompts for selecting subfolder in sketchbook directory, and offers to run Tset to create Compile.cmd.
 
-Works on TeensyDuino 1.48 T4 [with TyComm] as released
+Works on TeensyDuino 1.53 - All ARM Teensys [with TyComm] as released
 
 This works perfectly in SublimeText as a " Tools / Build System " to setup:: From Sublime Menu:: Tools/ Build System/ New build system …
 Links below may be helpful but th ebest with 'NEW' is at https://forum.pjrc.com/threads/38391-Use-Sublime-Text-as-an-Arduino-IDE-replacement?p=193211&viewfull=1#post193211 ... 
