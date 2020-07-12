@@ -5,7 +5,7 @@ For Windows - a Batch file to create another local sketch folder Batch file that
 
 * SublimeText will go to code in error - NOTE: Sometimes it goes to the TEMP build folder not source file - be aware of that if changes don't stick
 
-* Latest FORUM post update Here [https://forum.pjrc.com/threads/38391-Use-Sublime-Text-as-an-Arduino-IDE-replacement?p=245999&viewfull=1#post245999]
+* Latest FORUM post (12 July 2020) update Here [https://forum.pjrc.com/threads/38391-Use-Sublime-Text-as-an-Arduino-IDE-replacement?p=245999&viewfull=1#post245999]
 > GDB debugger from TSET linked there for Teensy debugging with command line build
 > Edits made to allow the sketch.INO file to be placed into the resulting Compile.CMD file to avoid build problems when ,ultiple INO's in project sketch folder would trigger the IDE Build with the wrong INO breaking the build.
 > Updates to Sublime Text Build System are in above linked post.
