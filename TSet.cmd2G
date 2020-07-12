@@ -6,7 +6,10 @@ rem *******************************
 rem Don't edit below this line
 rem *******************************
 
-for %%i in (*.ino) do set sketchname=%%i
+if EXIST %sketchcmd% (
+  set sketchname=%sketchcmd%
+) ELSE for %%i in (*.ino) do set sketchname=%%i
+
 if "%sketchname%"=="" (
   echo No Arduino Sketch found!
   exit 1

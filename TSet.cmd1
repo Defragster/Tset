@@ -1,5 +1,6 @@
 @echo off
 SETLOCAL DisableDelayedExpansion EnableExtensions
+title TSET Arduino CMD line build
 rem *******************************
 rem Frank Bösing 11/2018
 rem Windows Batch to compile Arduino sketches
@@ -12,7 +13,7 @@ rem - Attention: Place compile.cmd in Sketch folder!
 rem
 rem Edit these paths:
 
-set arduino=T:\arduino-1.8.12
+set arduino=T:\arduino-1.8.13
 set TyTools=T:\TyComm
 set libs=T:\tCode\libraries
 set tools=T:\Programs\TSet

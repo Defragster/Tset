@@ -1,9 +1,12 @@
 @echo off
+title TSET Board Builder
 rem model
 rem menu.usb=USB Type
 rem menu.speed=CPU Speed
 rem menu.opt=Optimize
 rem menu.keys=Keyboard Layout
+
+REM echo %1 %2
 
 goto StartUp
 
@@ -190,7 +193,7 @@ set model=teensy40
 goto GetSpeedT4
 
 :T30
-set model=TEENSY30
+set model=teensy30
 goto GetSpeed
 
 :T36
@@ -464,7 +467,14 @@ Echo =============================================  Tools Selections
 ECHO MODEL :: %model%
 ECHO SPEED :: %speed%
 ECHO OPTIMIZE :: %opt%
+
+rem echo on
 ECHO USB :: %usb%
+set sketchcmd=~
+IF EXIST %1 set sketchcmd=%1
+IF /I "%2" NEQ "ino" set sketchcmd=~
+IF "~" NEQ "%sketchcmd%" ECHO SKETCH :: %1
+
 Echo =============================================  CONFIRM
 Echo 	Y :: Yes :: Accept and save to %cd%\Compile.cmd
 Echo 	N :: No :: RESTART
@@ -496,6 +506,7 @@ echo set speed=%speed%>> %OutCMD%
 echo set opt=%opt%>> %OutCMD%
 echo set usb=%usb%>> %OutCMD%
 echo %BuildUp%>> %OutCMD%
+echo set sketchcmd=%sketchcmd%>> %OutCMD%
 type %02 >> %OutCMD%
 :TsetQuit
 exit
@@ -512,5 +523,6 @@ echo set speed=%speed%>> %OutCMD%
 echo set opt=%opt%>> %OutCMD%
 echo set usb=%usb%>> %OutCMD%
 echo %BuildUp%>> %OutCMD%
+echo set sketchcmd=%sketchcmd%>> %OutCMD%
 type %02G >> %OutCMD%
 exit
