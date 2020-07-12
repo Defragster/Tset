@@ -4,12 +4,17 @@ Teensy Setting IDE Tools
 For Windows - a Batch file to create another local sketch folder Batch file that will run the Arduino IDE build system.  Using SublimeText it has a BUILD system that will execute this batch file, it can also be run from Windows command line - or perhaps your editor can run it as well.
 
 * SublimeText will go to code in error - NOTE: Sometimes it goes to the TEMP build folder not source file - be aware of that if changes don't stick
-* TD 1.48 boards.txt added Speed Menu and TSET files were updated, no changes needed to installed TeensyDuino files!
 
+* Latest FORUM post update Here [https://forum.pjrc.com/threads/38391-Use-Sublime-Text-as-an-Arduino-IDE-replacement?p=245999&viewfull=1#post245999]
+> GDB debugger from TSET linked there for Teensy debugging with command line build
+> Edits made to allow the sketch.INO file to be placed into the resulting Compile.CMD file to avoid build problems when ,ultiple INO's in project sketch folder would trigger the IDE Build with the wrong INO breaking the build.
+> Updates to Sublime Text Build System are in above linked post.
 
 This is an extention of work by Frank Boesing [https://github.com/FrankBoesing]  - that actually is the Batch file that runs the Arduino Builder outside the IDE. 
 
 Install a supported Arduino IDE {tested 1.8.13} and TeensyDuino {tested 1.53} combination - and TyCommander by Koromix [ https://github.com/Koromix/tytools ].
+
+It can be run fully from CMD window to build Compile CMD and run it, or once built double clicking Compile.CMD exeuctes the build from File Explorer.
 
 The Tset.cmd file asks questions to specify the Teensy Board, MCU Speed, Compile Optimization level and USB type. Then it asks to approve or restart the selection if a wrong choice was made.  It also allows creating a subfolder based on Teensy Model to hold the file so the same build batch file can be created for run any of the T_LC, T_3.2/3.2, T_3.5, T_3.6 or T_4.0 and T_4.1.
 
@@ -45,4 +50,4 @@ https://forum.pjrc.com/threads/38391-Use-Sublime-Text-as-an-Arduino-IDE-replacem
 
 * This works for my use using SublimeText on Window 10 - hopefully yours too - if not please make an ISSUE
 
-* Teensy4 use only - imxrt_size pulled from https://github.com/KurtE/imxrt-size : uncomment in TSet.cmd2 to use
+* Teensy4.x with imxrt1062 MCU use only - imxrt_size pulled from https://github.com/KurtE/imxrt-size : uncomment in TSet.cmd2 to use
