@@ -14,6 +14,8 @@ This is an extention of work by Frank Boesing [https://github.com/FrankBoesing] 
 
 Install a supported Arduino IDE {tested 1.8.13} and TeensyDuino {tested 1.53} combination - and TyCommander by Koromix [ https://github.com/Koromix/tytools ].
 
+* With latest TyCommander release (7Aug 2020) [ https://github.com/Koromix/tytools/releases/tag/v0.9.2 ] or newer when 'not Integrated' a build with TSET will prompt first time for 'which Teensy' and it will be placed into bootloader mode triggering Teensy Loader to AUTO program the sketch HEX to that Teensy as part of the build without having to manually do that (or Button push) as before.  It takes a rebuild of the Compile.cmd file for this to take effect.
+
 It can be run fully from CMD window to build Compile CMD and run it, or once built double clicking Compile.CMD exeuctes the build from File Explorer.
 
 The Tset.cmd file asks questions to specify the Teensy Board, MCU Speed, Compile Optimization level and USB type. Then it asks to approve or restart the selection if a wrong choice was made.  It also allows creating a subfolder based on Teensy Model to hold the file so the same build batch file can be created for run any of the T_LC, T_3.2/3.2, T_3.5, T_3.6 or T_4.0 and T_4.1.
@@ -27,6 +29,8 @@ NOTE: You must edit Tset.cmd1 to have proper folder paths to your local system.
 * set TyTools=T:\TyComm
 * set libs=T:\tCode\libraries
 * set tools=T:\Programs\TSet
+
+NOTE: A recent change attempts to embed the 'sketch.ino' name when building the Compile.cmd when it is passed in to avoid confusion when multiple INO files exist in the same sketch folder. The old 'first found' method is used when that isn't provided. It takes a rebuild of the Compile.cmd file for this to take effect.
 
 NOTE: If you aren't an English keyboard user make an edit to Tset.cmd2 from the specified: keys=en-us.
 

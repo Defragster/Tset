@@ -46,8 +46,8 @@ if not "%1"=="0" (
   if "%errorlevel%"=="0" (
 REM when TyComm integrated this .model. file will exist
     if EXIST "%temp1%\%sketchname%.%model%.hex" (
-      "%TyTools%\TyCommanderC.exe" upload --autostart --wait  "%temp1%\%sketchname%.%model%.hex" )
-REM this fights with TeensyLoader     else ( "%TyTools%\TyCommanderC.exe" upload --autostart --wait  "%temp1%\%sketchname%.hex" )
+      "%TyTools%\TyCommanderC.exe" upload --autostart --wait  "%temp1%\%sketchname%.%model%.hex" ) else ( 
+      "%TyTools%\TyCommanderC.exe" upload --autostart --wait --delegate "%temp1%\%sketchname%.hex" )
     "%arduino%\hardware\tools\arm\bin\arm-none-eabi-gcc-nm.exe" -n "%temp1%\%sketchname%.elf" | "%tools%\imxrt_size.exe"
     REM start "%tools%\GDB.cmd" "%arduino%\hardware\tools\arm\bin\arm-none-eabi-gdb.exe" "%temp1%\%sketchname%.elf"
   )  
