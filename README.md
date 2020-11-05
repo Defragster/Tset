@@ -18,6 +18,8 @@ Install a supported Arduino IDE {tested 1.8.13} and TeensyDuino {tested 1.53} co
 
 It can be run fully from CMD window to build Compile CMD and run it, or once built double clicking Compile.CMD exeuctes the build from File Explorer.
 
+Now supports using libraries from PORTABLE folder created in Arduino IDE path.
+
 The Tset.cmd file asks questions to specify the Teensy Board, MCU Speed, Compile Optimization level and USB type. Then it asks to approve or restart the selection if a wrong choice was made.  It also allows creating a subfolder based on Teensy Model to hold the file so the same build batch file can be created for run any of the T_LC, T_3.2/3.2, T_3.5, T_3.6 or T_4.0 and T_4.1.
 
 TO USE :: Put the files from the repository in a known folder.
