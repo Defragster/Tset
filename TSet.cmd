@@ -156,8 +156,11 @@ Echo 	k :: everything
 Echo 	l :: disable
 Echo 	m :: Dual Serial
 Echo 	n :: Triple Serial
+Echo 	o :: mtpserial
+
 Echo.
-Choice /C 123456789abcdefghijklmn /M "What USB"
+Choice /C 123456789abcdefghijklmno /M "What USB"
+If Errorlevel 24 Goto U24
 If Errorlevel 23 Goto U23
 If Errorlevel 22 Goto U22
 If Errorlevel 21 Goto U21
@@ -363,7 +366,9 @@ goto GetUSB
 REM >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>   OPTIMIZE
 
 REM >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>   USB
-
+:U24
+set usb=mtpserial
+goto BeDone
 :U23
 set usb=serial3
 goto BeDone
