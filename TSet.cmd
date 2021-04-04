@@ -19,12 +19,14 @@ Echo 	4 :: 3.6
 Echo 	5 :: 3.0
 Echo 	6 :: 4.0
 Echo 	7 :: 4.1
+Echo 	8 :: MicroMod
 Echo 	q :: quit
 
 Echo.
-Choice /C 1234567q /M "Which Teensy"
+Choice /C 12345678q /M "Which Teensy"
 
-If Errorlevel 8 Goto TsetQuit
+If Errorlevel 9 Goto TsetQuit
+If Errorlevel 8 Goto TMM
 If Errorlevel 7 Goto T41
 If Errorlevel 6 Goto T40
 If Errorlevel 5 Goto T30
@@ -187,6 +189,10 @@ If Errorlevel 1 Goto U1
 
 
 REM >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>   MODEL
+:TMM
+set model=teensyMM
+goto GetSpeedT4
+
 :T41
 set model=teensy41
 goto GetSpeedT4
