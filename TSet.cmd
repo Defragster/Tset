@@ -19,12 +19,14 @@ Echo 	4 :: 3.6
 Echo 	5 :: 3.0
 Echo 	6 :: 4.0
 Echo 	7 :: 4.1
+Echo 	8 :: T.MM
 Echo 	q :: quit
 
 Echo.
-Choice /C 1234567q /M "Which Teensy"
+Choice /C 12345678q /M "Which Teensy"
 
-If Errorlevel 8 Goto TsetQuit
+If Errorlevel 9 Goto TsetQuit
+If Errorlevel 8 Goto TMM
 If Errorlevel 7 Goto T41
 If Errorlevel 6 Goto T40
 If Errorlevel 5 Goto T30
@@ -157,7 +159,6 @@ Echo 	l :: disable
 Echo 	m :: Dual Serial
 Echo 	n :: Triple Serial
 Echo 	o :: mtpserial
-
 Echo.
 Choice /C 123456789abcdefghijklmno /M "What USB"
 If Errorlevel 24 Goto U24
@@ -187,6 +188,10 @@ If Errorlevel 1 Goto U1
 
 
 REM >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>   MODEL
+:TMM
+set model=teensyMM
+goto GetSpeedT4
+
 :T41
 set model=teensy41
 goto GetSpeedT4
@@ -366,9 +371,11 @@ goto GetUSB
 REM >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>   OPTIMIZE
 
 REM >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>   USB
+
 :U24
 set usb=mtpserial
 goto BeDone
+
 :U23
 set usb=serial3
 goto BeDone
@@ -475,6 +482,7 @@ ECHO OPTIMIZE :: %opt%
 
 rem echo on
 ECHO USB :: %usb%
+ECHO Sketch :: %1
 set sketchcmd=~
 IF EXIST %1 set sketchcmd=%1
 IF /I "%2" NEQ "ino" set sketchcmd=~

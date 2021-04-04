@@ -13,7 +13,7 @@ echo Enter Path in %sbook% [New or with tab completion]
 set /p bar=
 if not exist %sbook%\%bar%\. md %bar%
 :finish
-echo Enter Sketch Name
+echo Enter Sketch Name -without extension!
 set /p foo=
 if not exist %sbook%\%bar%\%foo%\. md %sbook%\%bar%\%foo%
 if exist %sbook%\%bar%\%foo%\%foo%.ino echo File already exists
