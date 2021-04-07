@@ -22,6 +22,7 @@ set temp1="%TsetTemp%\\arduino_build_%sketchname%"
 set temp2="%TsetTemp%\\arduino_cache_%sketchname%"
 set fqbn=teensy:avr:%model%:usb=%usb%,speed=%speed%,opt=%opt%,keys=%keys%
 
+if "%model%"=="teensyMM" set model=TEENSY_MICROMOD
 rem Comment line below to build prior to TeensyDuino 1.50
 if "%model%"=="teensy31" set model=teensy32
 
@@ -44,8 +45,6 @@ if exist %arduino%\portable\sketchbook\libraries\.  echo Building PORTABLE: %lib
 
 echo Building Sketch: %ino%
 "%arduino%\arduino-builder" -verbose=1 -warnings=more -compile -logger=human -hardware "%arduino%\hardware" -hardware "%LOCALAPPDATA%\Arduino15\packages" -tools "%arduino%\tools-builder" -tools "%arduino%\hardware\tools\avr" -tools "%LOCALAPPDATA%\Arduino15\packages" -built-in-libraries "%arduino%\libraries" -libraries "%libs%" -fqbn=%fqbn% -build-path %temp1% -build-cache "%temp2%"  %ino%
-
-if "%model%"=="teensyMM" set model=TEENSY_MICROMOD
 
 if not "%1"=="0" (
 	REM Use TyComm with IDE to reboot for TeensyLoader Update // tycmd reset -b
