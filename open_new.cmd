@@ -22,7 +22,7 @@ Choice /C yn /M "Create Compile.cmd"
 If Errorlevel 2 Goto nowexit
 rem If Errorlevel 1 
 cd %sbook%\%bar%\%foo%
-start /w %srcdir%\TSet.cmd
+start /w %srcdir%\TSet.cmd %foo%.ino
 :nowexit
 start %sbook%\%bar%\%foo%\%foo%.ino
 popd

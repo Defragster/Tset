@@ -485,7 +485,7 @@ ECHO USB :: %usb%
 ECHO Sketch :: %1
 set sketchcmd=~
 IF EXIST %1 set sketchcmd=%1
-IF /I "%2" NEQ "ino" set sketchcmd=~
+REM IF /I "%2" NEQ "ino" set sketchcmd=~
 IF "~" NEQ "%sketchcmd%" ECHO SKETCH :: %1
 
 Echo =============================================  CONFIRM
