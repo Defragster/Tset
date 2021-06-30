@@ -12,7 +12,7 @@ For Windows - a Batch file to create another local sketch folder Batch file that
 
 This is an extention of work by Frank Boesing [https://github.com/FrankBoesing]  - that actually is the Batch file that runs the Arduino Builder outside the IDE. 
 
-Install a supported Arduino IDE {tested 1.8.13} and TeensyDuino {tested 1.53} combination - and TyCommander by Koromix [ https://github.com/Koromix/tytools ].
+Install a supported Arduino IDE {tested 1.8.15} and TeensyDuino {tested 1.54b12} combination - and TyCommander by Koromix [ https://github.com/Koromix/tytools ].
 
 * With latest TyCommander release (7Aug 2020) [ https://github.com/Koromix/tytools/releases/tag/v0.9.2 ] or newer when 'not Integrated' a build with TSET will prompt first time for 'which Teensy' and it will be placed into bootloader mode triggering Teensy Loader to AUTO program the sketch HEX to that Teensy as part of the build without having to manually do that (or Button push) as before.  It takes a rebuild of the Compile.cmd file for this to take effect.
 
@@ -27,7 +27,7 @@ Run Tset.cmd ( must include extention .cmd ) from the Sketch folder where the IN
 
 NOTE: You must edit Tset.cmd1 to have proper folder paths to your local system. 
 * rem Edit these paths:
-* set arduino=T:\arduino-1.8.13
+* set arduino=T:\arduino-1.8.15
 * set TyTools=T:\TyComm
 * set libs=T:\tCode\libraries
 * set tools=T:\Programs\TSet
@@ -48,7 +48,7 @@ That links to the updated version allowing the batch file to be placed in the sp
 
 Added 'open_new.cmd' [Must edit the specified sketchbook(sbook) and Tset home directory (srcdir)] option to create the IDE type Sketch in same name folder with a base 'new_ino.ino' sketch, prompts for selecting subfolder in sketchbook directory, and offers to run Tset to create Compile.cmd.
 
-Works on TeensyDuino 1.53 - All ARM Teensys [with TyComm] as released
+Works on TeensyDuino 1.54 - All ARM Teensys [with TyComm] as released {and Beta SFun MicroMod}
 
 This works perfectly in SublimeText as a " Tools / Build System " to setup:: From Sublime Menu:: Tools/ Build System/ New build system …
 Links below may be helpful but th ebest with 'NEW' is at https://forum.pjrc.com/threads/38391-Use-Sublime-Text-as-an-Arduino-IDE-replacement?p=193211&viewfull=1#post193211 ... 
@@ -56,4 +56,6 @@ https://forum.pjrc.com/threads/38391-Use-Sublime-Text-as-an-Arduino-IDE-replacem
 
 * This works for my use using SublimeText on Window 10 - hopefully yours too - if not please make an ISSUE
 
-* Teensy4.x with imxrt1062 MCU use only - imxrt_size pulled from https://github.com/KurtE/imxrt-size : uncomment in TSet.cmd2 to use
+* Teensy4.x build now shows better Memory Resources by default with TD 1.54.
+
+* Edit 6/30/2021 to store sketch name requires CmdLine execution change to pass file_name : see Forum : https://forum.pjrc.com/threads/38391-Use-Sublime-Text-as-an-Arduino-IDE-replacement?p=282584&viewfull=1#post282584
