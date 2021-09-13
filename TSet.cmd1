@@ -13,12 +13,12 @@ rem - Attention: Place compile.cmd in Sketch folder!
 rem
 rem Edit these paths:
 
-set arduino=T:\arduino-1.8.15
-set TyTools=T:\TyComm
-set libs=T:\tCode\libraries
-set tools=T:\Programs\TSet
+set arduino=C:\T_Drive\Arduino_1.8.16_155
+set TyTools=C:\T_Drive\TyComm
+set libs=C:\T_Drive\tCode\libraries
+set tools=C:\T_Drive\Programs\TSet
 REM Pick a TEMP folder IF not the Windows Default folder - remove REM
-set TsetTemp=t:\temp
+set TsetTemp=R:\temp
 
 rem *******************************
 rem Set Teensy-specific variables here:
