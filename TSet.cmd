@@ -159,8 +159,10 @@ Echo 	l :: disable
 Echo 	m :: Dual Serial
 Echo 	n :: Triple Serial
 Echo 	o :: mtpserial
+Echo 	r :: rawhid512
 Echo.
-Choice /C 123456789abcdefghijklmno /M "What USB"
+Choice /C 123456789abcdefghijklmnor /M "What USB"
+If Errorlevel 25 Goto U25
 If Errorlevel 24 Goto U24
 If Errorlevel 23 Goto U23
 If Errorlevel 22 Goto U22
@@ -371,6 +373,10 @@ goto GetUSB
 REM >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>   OPTIMIZE
 
 REM >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>   USB
+
+:U25
+set usb=rawhid512
+goto BeDone
 
 :U24
 set usb=mtpserial
